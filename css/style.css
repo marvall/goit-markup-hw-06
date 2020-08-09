@@ -455,7 +455,7 @@ img {
   margin-top: 12px;
   margin-bottom: 20px;
 }
-.footer-left-block {
+.footer-block:not(:last-child) {
   margin-right: 70px;
 }
 .footer .logo {
