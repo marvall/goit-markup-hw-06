@@ -157,6 +157,7 @@ img {
 .contact-menu .link:hover,
 .contact-menu .link:focus {
   color: var(--main-action-color);
+  outline: none;
 }
 .contact-menu .link svg {
   margin-right: 10px;
@@ -169,6 +170,7 @@ img {
 .contact-menu .link:hover svg,
 .contact-menu .link:focus svg {
   fill: var(--main-action-color);
+  outline: none;
 }
 
 .link.state-active {
@@ -235,6 +237,7 @@ img {
 .hero.button:focus {
   background: #188ce8;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  outline: none;
 }
 /* ---- SECTIOND "Наши Принципы" ---- */
 .principles-section {
@@ -374,6 +377,7 @@ img {
 .social-page-icon:hover,
 .social-page-icon:focus {
   background-color: var(--main-action-color);
+  outline: none;
 }
 .social-link-svg {
   width: 20px;
@@ -420,6 +424,7 @@ img {
 .company-list-link:hover,
 .company-list-link:focus {
   border-color: var(--main-action-color);
+  outline: none;
 }
 .company-list-link:hover svg,
 .company-list-link:focus svg {
@@ -502,6 +507,16 @@ img {
   font-weight: 700;
   font-size: 16px;
   line-height: 1.87em;
+
+  transition-property: all;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.submit-button:hover,
+.submit-button:focus {
+  background: #188ce8;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  outline: none;
 }
 .submit-icon{
   width: 24px;
@@ -509,9 +524,9 @@ img {
   margin-left: 10px;
   fill: var(--secendary-text-color);
 
-  transition-property: fill;
+  /* transition-property: fill;
   transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); */
 }
 .footer-email{
   width: 358px;
@@ -524,11 +539,20 @@ img {
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-sizing: border-box;
   border-radius: 4px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
 }
 .footer-email::placeholder{
+  font-family: var(--main-font);
+  font-style: normal;
+  font-weight: 400;
   letter-spacing: 0.03em;
   line-height: 1.25em;
   color: var(--secendary-footer-color);
+}
+
+.footer-email:focus{
+  outline: none;
+  color: var(--secendary-text-color);
 }
 /*============================================================*/
 
@@ -665,4 +689,31 @@ img {
 }
 .product-content-item:hover .product-description {
   transform: translateY(0);
+}
+
+/* modal window*/
+.backdrop{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+.modal-form{
+  padding: 40px;
+  position: absolute;
+  width: 528px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  background-color: var(--secendary-text-color);
+}
+
+form > .submit-button{
+  padding-right: 56px;
+  padding-left: 56px;
 }
