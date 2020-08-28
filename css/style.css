@@ -689,6 +689,12 @@ img {
 }
 
 /* modal window*/
+.is-hidden {
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+}
+
 .backdrop {
   position: fixed;
   top: 0;
@@ -697,9 +703,14 @@ img {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
   z-index: 100;
+
+  transition-property: all;
+transition-duration: 250ms;
+transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal-form {
   padding: 40px;
+  box-sizing: border-box;
   position: absolute;
   width: 528px;
   top: 50%;
@@ -708,9 +719,179 @@ img {
   display: flex;
   flex-direction: column;
   background-color: var(--secendary-text-color);
+  font-family: var(--main-font);
+  font-style: normal;
+  color: var(--main-text-color);
+  letter-spacing: 0.03em;
 }
 
-form > .submit-button {
+.modal-form > p {
+  margin: 0;
+  margin-bottom: 30px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.15em;
+  text-align: center;
+  color: var(--main-title-color);
+}
+
+.modal-element-wrapper {
+  position: relative;
+}
+.modal-element-wrapper:not(:last-child) {
+  margin-bottom: 28px;
+}
+.modal-form-input{
+  padding-left: 42px;
+  height: 40px;
+  width: 100%;
+  display: block;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  box-sizing: border-box;
+  border-radius: 4px;
+
+  font-size: 14px;
+line-height: 1.14em;
+letter-spacing: 0.01em;
+
+transition-property:border;
+transition-duration: 250ms;
+transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal-form-input:focus,
+.modal-form-comment:focus,
+.modal-form-input:not(:placeholder-shown),
+.modal-form-comment:not(:placeholder-shown){
+  outline: none;
+  border-color: var(--main-action-color);
+}
+.modal-form-comment{
+  height: 120px;
+  width: 100%;
+  display: block;
+  padding-top: 12px;
+  padding-left: 16px;
+  padding-bottom: 12px;
+  padding-right: 16px;
+  resize: none;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  box-sizing: border-box;
+  border-radius: 4px;
+
+  font-size: 14px;
+line-height: 1.14em;
+letter-spacing: 0.01em;
+
+transition-property: border;
+transition-duration: 250ms;
+transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-form-label {
+  position: absolute;
+  top: 50%;
+  left: 42px;
+  transform: translateY(-50%);
+
+  
+  transition-property: all;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-icon{
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+  fill: var(--main-title-color);
+
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal-form-input:focus + .modal-form-label,
+.modal-form-comment:focus + .modal-form-label,
+.modal-form-input:not(:placeholder-shown) + .modal-form-label{
+  transform: translate(-26px, -40px);
+  color: var(--main-action-color);
+}
+.modal-form-input:focus ~ .form-icon,
+.modal-form-comment:focus ~ .form-icon,
+.modal-form-input:not(:placeholder-shown) ~ .form-icon{
+  fill: var(--main-action-color);
+}
+
+.modal-form-checkbox{
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0 );
+  overflow: hidden;
+}
+
+.modal-form-option-label{
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+}
+.modal-form-option-label > span {
+  font-size: 14px;
+line-height: 1.71em;
+}
+.form-custom-checkbox{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 13px;
+  border: 2px solid var(--main-title-color);
+  border-radius: 2px;
+  margin-right: 8px;
+}
+.form-custom-checkbox > svg{
+  fill: var(--secendary-text-color);
+}
+
+.modal-form-checkbox:checked + .form-custom-checkbox{
+  background-color: var(--main-action-color);
+  border-color: var(--main-action-color);
+}
+
+.modal-form-option-label a {
+  font-size: 14px;
+line-height: 1.71em;
+letter-spacing: 0.03em;
+color: var(--main-action-color);
+}
+
+form .submit-button {
   padding-right: 56px;
   padding-left: 56px;
+  margin: auto;
+}
+.close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  box-sizing: border-box;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+}
+
+.close > svg {
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.close:focus > svg,
+.close:hover > svg{
+  fill: var(--main-action-color);
 }
