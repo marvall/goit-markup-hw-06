@@ -883,7 +883,7 @@ letter-spacing: 0.03em;
 color: var(--main-action-color);
 }
 
-form .submit-button {
+.modal-form .submit-button {
   padding-right: 56px;
   padding-left: 56px;
   margin: auto;
